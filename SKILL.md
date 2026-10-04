@@ -59,6 +59,7 @@ MarxDoctorPaper 是马克思主义理论一级学科（含思想政治教育、�
 - `references/ai-trace-mitigation-protocol.md`：AI 痕迹控制与保真编辑规则。
 - `references/style-protocol.md`、`references/wording-expression-protocol.md`：语言与表达纪律。
 - `references/classic-text-reading-protocol.md`、`references/marxist-classics-index.md`：经典文本精读。
+- `references/classics-vector-retrieval-protocol.md`：马恩全集与治国理政向量库检索纪律（核验经典原句卷页、找理论源头、政治合规核验）。
 - `references/concept-ledger-protocol.md`：概念台账。
 
 ### 按需读取
@@ -112,6 +113,10 @@ python scripts/emarx_bind_cnki_sources.py --sources workspace/sources.json --out
 python scripts/scan_workspace_sources.py --root workspace --output sources.json
 python scripts/select_anchor_papers.py --topic "论文题目" --workspace-root workspace --output anchor-papers.md --top-k 5
 python scripts/build_research_brief.py --topic "论文题目" --sources sources.json --output research-brief.md
+
+# 经典文本向量检索（马恩全集 / 习近平谈治国理政，需本机已部署 classics-rag 库）
+python scripts/classics_search.py "精神生产与物质生产" --db both --top-k 8
+python scripts/classics_search.py --fetch marx 42 368
 
 # 审计
 python scripts/footnote_audit.py --paper paper.md --output footnote-audit.json
